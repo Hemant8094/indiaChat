@@ -1,0 +1,1 @@
+ export const updateTab = (payload)=> ({ type:"updateTab", payload });
