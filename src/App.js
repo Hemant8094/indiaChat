@@ -4,6 +4,8 @@ import { ReactComponent as ChatIcon } from './assets/chat_bubble_black_24dp.svg'
 import { ReactComponent as CameraIcon } from './assets/camera_black_24dp.svg';
 import { ReactComponent as StoiesIcon } from './assets/auto_stories_black_24dp.svg';
 import { ReactComponent as PersonIcon } from './assets/person_black_24dp.svg';
+import { ReactComponent as CancelIcon } from './assets/clear_black_24dp.svg';
+import { ReactComponent as FlipIcon } from './assets/cameraswitch_black_24dp.svg';
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Link, Route, Switch, useParams } from "react-router-dom"
 import { useEffect,useRef,useCallback } from "react";
@@ -123,7 +125,9 @@ function Camera() {
       [webcamRef]
     );
 
-  const setImage = (image) => dispatch(imageTab(image)); 
+  const setImage = (image) => {
+    dispatch(imageTab(image))
+  }; 
 
   return <div style={{position: 'relative', height: '100%'}}> 
     {
@@ -142,14 +146,30 @@ function Camera() {
           width ='100%'
           height='100%'
           style={{ objectFit: 'cover'}}
-          screenshotFormat ={"image/png"}/>
+          screenshotFormat ={"image/png"}
+          />
     }
-    <div style={{position: 'absolute', width: '100%', 'bottom': "32px"}}>
-     { !image 
-        ? <button onClick ={()=>capture()}>capture</button>
-        : <button onClick={() => setImage(null)}>close</button>
-     }
-    </div>
+    {!image 
+      ? <div style={{position: 'absolute', width: '100%', 'bottom': "32px"}}>
+          <button onClick ={()=>capture()} 
+          style={{    borderRadius: "100%",
+                      width: '90px',
+                      height: '90px',
+                      border: '7px solid white',
+                      backgroundColor: 'transparent'}}></button>
+          <button style = {{       position: 'absolute',
+                                  right: '10px',
+                                  top: '-520px',
+                                  border: 'none',
+                                  borderRadius: '100%',
+                                  backgroundColor: '#0000000f'}}><FlipIcon style={{fill: 'white'}}/></button>            
+        </div>
+      : <div style={{position: 'absolute', width: '100%', 'top': 8, left: 8, textAlign: "initial"}}>
+          <button 
+            style={{backgroundColor: '#0000000f', border: 'none', borderRadius: '100%',}}
+            onClick={() => setImage(null)}><CancelIcon style={{fill: 'white'}}/></button>
+        </div>
+    }
   </div>
 }
 function Stories() {
