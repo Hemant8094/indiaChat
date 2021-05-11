@@ -6,8 +6,9 @@ import { ReactComponent as StoiesIcon } from './assets/auto_stories_black_24dp.s
 import { ReactComponent as PersonIcon } from './assets/person_black_24dp.svg';
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Link, Route, Switch, useParams } from "react-router-dom"
-import { useEffect } from "react";
-import { updateTab } from "./actions";
+import { useEffect,useRef,useCallback } from "react";
+import { imageTab, updateTab } from "./actions";
+import Webcam from "react-webcam";
 
 function App() {
   const selectedTab = useSelector(state => state.selectedTab);
@@ -111,8 +112,44 @@ function Chats(props) {
 }
 
 function Camera() {
-  return <div> 
-    <h1>Camera</h1> 
+    const webcamRef = useRef(null);
+    const dispatch = useDispatch();
+    const image = useSelector(state => state.captureImage)
+    const capture = useCallback(
+      () => {
+        const imageSrc = webcamRef.current.getScreenshot();
+        setImage(imageSrc);
+      },
+      [webcamRef]
+    );
+
+  const setImage = (image) => dispatch(imageTab(image)); 
+
+  return <div style={{position: 'relative', height: '100%'}}> 
+    {
+      image 
+        ?  
+          <img src={image} 
+            alt=""
+            style={{
+              height: '100%',
+              width: '100%',
+              objectFit: 'cover'}}
+            /> 
+          
+        : <Webcam
+          ref={webcamRef}
+          width ='100%'
+          height='100%'
+          style={{ objectFit: 'cover'}}
+          screenshotFormat ={"image/png"}/>
+    }
+    <div style={{position: 'absolute', width: '100%', 'bottom': "32px"}}>
+     { !image 
+        ? <button onClick ={()=>capture()}>capture</button>
+        : <button onClick={() => setImage(null)}>close</button>
+     }
+    </div>
   </div>
 }
 function Stories() {
