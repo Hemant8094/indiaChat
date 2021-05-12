@@ -1,4 +1,7 @@
 export const initialState = {
     selectedTab: 1,
-    captureImage:null
+    captureImage:null,
+    cameraFlip:true,
+    mirrorFlip:false,
+    
 }

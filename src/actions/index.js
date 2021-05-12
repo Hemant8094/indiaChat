@@ -9,3 +9,15 @@ export const imageTab = (image)=>{
         image,
     }
 }     
+export const flipTab =(isUserFacing)=>{
+    return{
+        type:"flipTab",
+        isUserFacing
+    }
+}
+export const mirrorTab =(isMirror)=>{
+    return{
+        type:"mirrorTab",
+        isMirror
+    }
+}

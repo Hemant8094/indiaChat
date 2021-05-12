@@ -1,19 +1,16 @@
 import Navigation from "./Navigation"
+import Camera from "./Camera"
 import './App.css';
 import { ReactComponent as ChatIcon } from './assets/chat_bubble_black_24dp.svg';
 import { ReactComponent as CameraIcon } from './assets/camera_black_24dp.svg';
 import { ReactComponent as StoiesIcon } from './assets/auto_stories_black_24dp.svg';
 import { ReactComponent as PersonIcon } from './assets/person_black_24dp.svg';
-import { ReactComponent as CancelIcon } from './assets/clear_black_24dp.svg';
-import { ReactComponent as FlipIcon } from './assets/cameraswitch_black_24dp.svg';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, } from "react-redux";
 import { BrowserRouter, Link, Route, Switch, useParams } from "react-router-dom"
-import { useEffect,useRef,useCallback } from "react";
-import { imageTab, updateTab } from "./actions";
-import Webcam from "react-webcam";
+import { useEffect} from "react";
+import {  updateTab } from "./actions";
 
 function App() {
-  const selectedTab = useSelector(state => state.selectedTab);
   const dispatch = useDispatch()
 
   const buttons = [
@@ -27,7 +24,8 @@ function App() {
       name: 'Camera',
       id : 1,
       icon: CameraIcon,
-      url: "/camera"
+      url: "/camera",
+      isTransparent: true
     },
     {
       name: 'Stories',
@@ -42,14 +40,10 @@ function App() {
     if (item) dispatch(updateTab(item.id))
   })
 
-  const item = buttons.find(x => x.id === selectedTab);
   return (
     <BrowserRouter>
       <div className="App">
       <div className ="camera">
-        <div>
-          {item.name}
-        </div>
         <div className="data">
           <Switch>
             <Route path="/chats/:id">
@@ -109,69 +103,17 @@ function Chats(props) {
  }
  
   return <div>
+          <div style = {{position:"sticky",top:0,backgroundColor:"white",padding:"10px",boxShadow:"1px 1px 5px", fontSize:"23px",fontFamily:"cursive"}}>
+            Chats
+          </div>
+          <div>
          {chats()}
+
+          </div>
         </div>
 }
 
-function Camera() {
-    const webcamRef = useRef(null);
-    const dispatch = useDispatch();
-    const image = useSelector(state => state.captureImage)
-    const capture = useCallback(
-      () => {
-        const imageSrc = webcamRef.current.getScreenshot();
-        setImage(imageSrc);
-      },
-      [webcamRef]
-    );
 
-  const setImage = (image) => {
-    dispatch(imageTab(image))
-  }; 
-
-  return <div style={{position: 'relative', height: '100%'}}> 
-    {
-      image 
-        ?  
-          <img src={image} 
-            alt=""
-            style={{
-              height: '100%',
-              width: '100%',
-              objectFit: 'cover'}}
-            /> 
-          
-        : <Webcam
-          ref={webcamRef}
-          width ='100%'
-          height='100%'
-          style={{ objectFit: 'cover'}}
-          screenshotFormat ={"image/png"}
-          />
-    }
-    {!image 
-      ? <div style={{position: 'absolute', width: '100%', 'bottom': "32px"}}>
-          <button onClick ={()=>capture()} 
-          style={{    borderRadius: "100%",
-                      width: '90px',
-                      height: '90px',
-                      border: '7px solid white',
-                      backgroundColor: 'transparent'}}></button>
-          <button style = {{       position: 'absolute',
-                                  right: '10px',
-                                  top: '-520px',
-                                  border: 'none',
-                                  borderRadius: '100%',
-                                  backgroundColor: '#0000000f'}}><FlipIcon style={{fill: 'white'}}/></button>            
-        </div>
-      : <div style={{position: 'absolute', width: '100%', 'top': 8, left: 8, textAlign: "initial"}}>
-          <button 
-            style={{backgroundColor: '#0000000f', border: 'none', borderRadius: '100%',}}
-            onClick={() => setImage(null)}><CancelIcon style={{fill: 'white'}}/></button>
-        </div>
-    }
-  </div>
-}
 function Stories() {
   return <h1>Stories</h1>
 }
