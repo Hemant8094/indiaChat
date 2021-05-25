@@ -87,7 +87,7 @@ function Camera() {
               border: 'none',
               borderRadius: '100%',
               backgroundColor: '#0000000f'}}
-          >{<img style = {{width:"22px",height:"22px"}} alt = {"mirror"}src = {Mirror}/>}</button>
+          >{<img style = {{width:"22px",height:"22px"}} alt="mirror" src={Mirror}/>}</button>
 
         </>
       : <div style={{position: 'absolute', width: '100%', 'top': 8, left: 8, textAlign: "initial"}}>

@@ -2,6 +2,9 @@ export const initialState = {
     selectedTab: 1,
     captureImage:null,
     cameraFlip:true,
-    mirrorFlip:false,
+    mirrorFlip:true,
+    chatText:"",
+    textArray:[],
+    
     
 }
