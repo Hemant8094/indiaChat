@@ -5,6 +5,7 @@ import { updateTab}from "./actions"
 
 function Navigation(props) {
   const selectedTab = useSelector(state => state.selectedTab)
+  // const image = useSelector(state => state.captureImage)
   const dispatch = useDispatch();
   const _selectTab = (tabId) => {
     dispatch(updateTab(tabId))
@@ -12,7 +13,10 @@ function Navigation(props) {
 
   const isTransparent = props.buttons.find(x => x.isTransparent && selectedTab === x.id);
   return (
-      <div className="row" style = {isTransparent ? {backgroundColor:" #000000a1"}: null}>
+    <>
+      {/* <div style = {image?{display:"none"}:null}> */}
+
+      <div className="row" style = {{backgroundColor:isTransparent ? "#000000a1": null, ...props.style}}>
       {props.buttons.map((x) => 
         <Link to={x.url}> 
           <button onClick={() => {_selectTab(x.id)}} 
@@ -27,6 +31,8 @@ function Navigation(props) {
           </button>
         </Link>)}
       </div>
+      {/* </div> */}
+    </>
   );
 }
 

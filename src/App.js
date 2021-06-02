@@ -7,13 +7,15 @@ import { ReactComponent as ChatIcon } from './assets/chat_bubble_black_24dp.svg'
 import { ReactComponent as CameraIcon } from './assets/camera_black_24dp.svg';
 import { ReactComponent as StoiesIcon } from './assets/auto_stories_black_24dp.svg';
 import { ReactComponent as PersonIcon } from './assets/person_black_24dp.svg';
-import { useDispatch, } from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 import { BrowserRouter,Route, Switch,} from "react-router-dom"
 import { useEffect} from "react";
 import {  updateTab } from "./actions";
+import UploadedStory from "./Uploadedstory"
 
 function App() {
   const dispatch = useDispatch()
+  const image = useSelector(state => state.captureImage)
 
   const buttons = [
     {
@@ -26,7 +28,7 @@ function App() {
       name: 'Camera',
       id : 1,
       icon: CameraIcon,
-      url: "/camera",
+      url: "/indiachat",
       isTransparent: true
     },
     {
@@ -44,34 +46,40 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className = "headerContain">
+      {/* <div className = "headerContain">
 
       <div className = "header">
         
           India-Chat
       </div>
-      </div>
+      </div> */}
       <div className="App">
         <div className ="camera">
          <div className="data">
           <Switch>
-            <Route path="/chats/:id">
+            <Route  path="/chats/:id">
               <Chatspace chatsData = {chatsData}/>
             </Route>
-            <Route exact path="/chats">
+            <Route  path="/chats">
               <ChatsList chatsData = {chatsData}/>
               <Navigation buttons={buttons}/>
 
+            </Route>
+            <Route path="/stories/id">
+              <UploadedStory/>
             </Route>
             <Route path="/stories">
               <Stories chatsData = {chatsData} />
               <Navigation buttons={buttons}/>
 
             </Route>
-            <Route path="/">
-              <Camera />
-              <Navigation buttons={buttons}/>
+            <Route  exact path="/indiachat">
+              <Camera chatsData  = {chatsData}/>
+              <Navigation buttons={buttons} style = {image?{display:"none"}:null} />
 
+            </Route>
+            <Route  exact path = "/chat-camera">
+            <Camera chatsData  = {chatsData}/>
             </Route>
           </Switch>
         </div>
@@ -93,28 +101,28 @@ const chatsData = [
   {name:xx(),emoji:PersonIcon,id:7},
   {name:xx(),emoji:PersonIcon,id:8},
   {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
-  {name:xx(),emoji:PersonIcon,id:9},
+  {name:xx(),emoji:PersonIcon,id:10},
+  {name:xx(),emoji:PersonIcon,id:11},
+  {name:xx(),emoji:PersonIcon,id:12},
+  {name:xx(),emoji:PersonIcon,id:13},
+  {name:xx(),emoji:PersonIcon,id:14},
+  {name:xx(),emoji:PersonIcon,id:15},
+  {name:xx(),emoji:PersonIcon,id:16},
+  {name:xx(),emoji:PersonIcon,id:17},
+  {name:xx(),emoji:PersonIcon,id:18},
+  {name:xx(),emoji:PersonIcon,id:19},
+  {name:xx(),emoji:PersonIcon,id:20},
+  {name:xx(),emoji:PersonIcon,id:21},
+  {name:xx(),emoji:PersonIcon,id:22},
+  {name:xx(),emoji:PersonIcon,id:23},
+  {name:xx(),emoji:PersonIcon,id:24},
+  {name:xx(),emoji:PersonIcon,id:25},
+  {name:xx(),emoji:PersonIcon,id:26},
+  {name:xx(),emoji:PersonIcon,id:27},
+  {name:xx(),emoji:PersonIcon,id:28},
+  {name:xx(),emoji:PersonIcon,id:29},
+  {name:xx(),emoji:PersonIcon,id:30},
+  
   
 ]
 

@@ -5,6 +5,5 @@ export const initialState = {
     mirrorFlip:true,
     chatText:"",
     textArray:[],
-    
-    
+    storyArray:[],
 }
