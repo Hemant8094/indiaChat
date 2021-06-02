@@ -73,7 +73,7 @@ function App() {
               <Navigation buttons={buttons}/>
 
             </Route>
-            <Route  exact path="/indiachat">
+            <Route   path="/indiachat">
               <Camera chatsData  = {chatsData}/>
               <Navigation buttons={buttons} style = {image?{display:"none"}:null} />
 

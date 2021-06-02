@@ -1,28 +1,29 @@
 {
   "files": {
-    "main.css": "/indiaChat/static/css/main.d610bdc7.chunk.css",
-    "main.js": "/indiaChat/static/js/main.727794a7.chunk.js",
-    "main.js.map": "/indiaChat/static/js/main.727794a7.chunk.js.map",
-    "runtime-main.js": "/indiaChat/static/js/runtime-main.6239a062.js",
-    "runtime-main.js.map": "/indiaChat/static/js/runtime-main.6239a062.js.map",
-    "static/js/2.a7d0dbea.chunk.js": "/indiaChat/static/js/2.a7d0dbea.chunk.js",
-    "static/js/2.a7d0dbea.chunk.js.map": "/indiaChat/static/js/2.a7d0dbea.chunk.js.map",
-    "static/js/3.50aa7ea5.chunk.js": "/indiaChat/static/js/3.50aa7ea5.chunk.js",
-    "static/js/3.50aa7ea5.chunk.js.map": "/indiaChat/static/js/3.50aa7ea5.chunk.js.map",
+    "main.css": "/indiaChat/static/css/main.e24b1e62.chunk.css",
+    "main.js": "/indiaChat/static/js/main.44ca328c.chunk.js",
+    "main.js.map": "/indiaChat/static/js/main.44ca328c.chunk.js.map",
+    "runtime-main.js": "/indiaChat/static/js/runtime-main.5335f369.js",
+    "runtime-main.js.map": "/indiaChat/static/js/runtime-main.5335f369.js.map",
+    "static/js/2.e08a40bf.chunk.js": "/indiaChat/static/js/2.e08a40bf.chunk.js",
+    "static/js/2.e08a40bf.chunk.js.map": "/indiaChat/static/js/2.e08a40bf.chunk.js.map",
+    "static/js/3.5fe3f164.chunk.js": "/indiaChat/static/js/3.5fe3f164.chunk.js",
+    "static/js/3.5fe3f164.chunk.js.map": "/indiaChat/static/js/3.5fe3f164.chunk.js.map",
     "index.html": "/indiaChat/index.html",
-    "static/css/main.d610bdc7.chunk.css.map": "/indiaChat/static/css/main.d610bdc7.chunk.css.map",
-    "static/js/2.a7d0dbea.chunk.js.LICENSE.txt": "/indiaChat/static/js/2.a7d0dbea.chunk.js.LICENSE.txt",
+    "static/css/main.e24b1e62.chunk.css.map": "/indiaChat/static/css/main.e24b1e62.chunk.css.map",
+    "static/js/2.e08a40bf.chunk.js.LICENSE.txt": "/indiaChat/static/js/2.e08a40bf.chunk.js.LICENSE.txt",
     "static/media/auto_stories_black_24dp.62bba5db.svg": "/indiaChat/static/media/auto_stories_black_24dp.62bba5db.svg",
     "static/media/camera_black_24dp.64872d7e.svg": "/indiaChat/static/media/camera_black_24dp.64872d7e.svg",
     "static/media/cameraswitch_black_24dp.6257d454.svg": "/indiaChat/static/media/cameraswitch_black_24dp.6257d454.svg",
     "static/media/chat_bubble_black_24dp.d1f3a95e.svg": "/indiaChat/static/media/chat_bubble_black_24dp.d1f3a95e.svg",
     "static/media/clear_black_24dp.244b6687.svg": "/indiaChat/static/media/clear_black_24dp.244b6687.svg",
+    "static/media/file_download_black_24dp.198f9bf0.svg": "/indiaChat/static/media/file_download_black_24dp.198f9bf0.svg",
     "static/media/person_black_24dp.60c17ce3.svg": "/indiaChat/static/media/person_black_24dp.60c17ce3.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.6239a062.js",
-    "static/js/2.a7d0dbea.chunk.js",
-    "static/css/main.d610bdc7.chunk.css",
-    "static/js/main.727794a7.chunk.js"
+    "static/js/runtime-main.5335f369.js",
+    "static/js/2.e08a40bf.chunk.js",
+    "static/css/main.e24b1e62.chunk.css",
+    "static/js/main.44ca328c.chunk.js"
   ]
 }
